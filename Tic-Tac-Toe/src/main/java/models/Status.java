@@ -1,7 +1,7 @@
 package models;
 
 public enum Status {
-    STARTED,
+    IN_PROGRESS,
     WIN,
     DRAW
 }

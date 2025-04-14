@@ -1,5 +1,7 @@
+import controllers.BoardController;
 import controllers.GameController;
 import dtos.CreateGameReqDto;
+import models.Game;
 import models.Player;
 
 import java.util.ArrayList;
@@ -10,8 +12,9 @@ public class Application {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        GameController gameController = new GameController();
-        while (true){
+        BoardController boardController = new BoardController();
+        GameController gameController = new GameController(boardController);
+        while(true){
 
             System.out.print("Board Dimension : ");
             int dem = scanner.nextInt();
@@ -35,11 +38,11 @@ public class Application {
             CreateGameReqDto createGameReqDto = new CreateGameReqDto();
             createGameReqDto.setBoardDimension(dem);
             createGameReqDto.setPlayers(playerList);
-            gameController.CreateGame(createGameReqDto);
+            Game game = gameController.createGame(createGameReqDto);
+            gameController.startGame(game);
 
             break;
         }
-
 
     }
 }
