@@ -3,6 +3,7 @@ import controllers.GameController;
 import dtos.CreateGameReqDto;
 import models.Game;
 import models.Player;
+import models.Status;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,13 @@ public class Application {
             createGameReqDto.setPlayers(playerList);
             Game game = gameController.createGame(createGameReqDto);
             gameController.startGame(game);
+
+            System.out.println("*** Game Over! ***");
+            if (game.getStatus() == Status.DRAW) {
+                System.out.println("Draw");
+            }else if (game.getStatus() == Status.WIN) {
+                System.out.println("Winner: " + game.getWinner());
+            }
 
             break;
         }
