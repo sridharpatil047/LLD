@@ -3,6 +3,7 @@ package controllers;
 import dtos.CreateGameReqDto;
 import models.*;
 import strategies.BruteForceStrategyImpl;
+import strategies.SuboptimalStrategyImpl;
 import strategies.WinningStrategy;
 
 import java.util.*;
@@ -37,7 +38,7 @@ public class GameController {
                 .moves(new ArrayList<>())
                 .status(Status.IN_PROGRESS)
                 .turn(0)
-                .winningStrategy(new BruteForceStrategyImpl())
+                .winningStrategy(new SuboptimalStrategyImpl())
                 .build();
     }
 
