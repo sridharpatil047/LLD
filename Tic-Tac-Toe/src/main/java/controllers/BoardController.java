@@ -33,6 +33,16 @@ public class BoardController {
         return board;
     }
 
+    public Board flushBoard(Board board) {
+        int dimension = board.getDimension();
+        List<Cell> cells = board.getCells();
+        for (Cell cell : cells) {
+            cell.setOwns(null);
+        }
+        board.setCells(cells);
+        return board;
+    }
+
     public Cell updateCell(Board board, Move move) {
         int dimension = board.getDimension();
         Cell cell = move.getCell();

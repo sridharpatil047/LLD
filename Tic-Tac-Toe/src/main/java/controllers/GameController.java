@@ -6,6 +6,7 @@ import strategies.BruteForceStrategyImpl;
 import strategies.SuboptimalStrategyImpl;
 import strategies.WinningStrategy;
 
+import java.io.IOException;
 import java.util.*;
 
 public class GameController {
@@ -91,6 +92,25 @@ public class GameController {
                 game.setTurn(game.getTurn() - 1);
                 boardController.printBoard(game.getBoard());
             }
+        }
+    }
+
+    public void gameReplay(Game game) throws InterruptedException, IOException {
+        System.out.print("Game replay? (y/n) : ");
+        char gameReplayChoice = scanner.next().charAt(0);
+        if (gameReplayChoice != 'y') {
+            return;
+        }
+        boardController.flushBoard(game.getBoard());
+
+        System.out.println("*** Starting replay ***");
+        boardController.printBoard(game.getBoard());
+        List<Move> moves = game.getMoves();
+        for (Move move : moves) {
+            Thread.sleep(1000);
+            boardController.updateCell(game.getBoard(), move);
+            System.out.println("\n".repeat(50));
+            boardController.printBoard(game.getBoard());
         }
     }
 

@@ -5,12 +5,13 @@ import models.Game;
 import models.Player;
 import models.Status;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException, IOException {
 
         Scanner scanner = new Scanner(System.in);
         BoardController boardController = new BoardController();
@@ -48,6 +49,8 @@ public class Application {
             }else if (game.getStatus() == Status.WIN) {
                 System.out.println("Winner: " + game.getWinner());
             }
+
+            gameController.gameReplay(game);
 
             break;
         }
