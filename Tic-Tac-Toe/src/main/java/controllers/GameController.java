@@ -81,6 +81,16 @@ public class GameController {
 
             // Display Board
             boardController.printBoard(game.getBoard());
+
+            // Undo?
+            System.out.print("Undo move? (y/n) : ");
+            char undoChoice = scanner.next().charAt(0);
+            if (undoChoice == 'y') {
+                game.getMoves().removeLast();
+                boardController.updateCell(game.getBoard(), new Move(null, userCellInput));
+                game.setTurn(game.getTurn() - 1);
+                boardController.printBoard(game.getBoard());
+            }
         }
     }
 
