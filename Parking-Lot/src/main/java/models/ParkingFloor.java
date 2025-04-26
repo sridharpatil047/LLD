@@ -1,14 +1,18 @@
 package models;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import models.spot.ParkingSpot;
+import models.floor.ParkingFloorStatus;
 
 import java.util.List;
 
 @Getter
 @Setter
+@Builder
 public class ParkingFloor extends BaseModel {
-    int floorNumber;
-    List<ParkingSpot> parkingSpots;
-    ParkingFloorStatus parkingFloorStatus;
+    private int floorNumber;
+    private List<ParkingSpot> parkingSpots;
+    private ParkingFloorStatus parkingFloorStatus;
 }

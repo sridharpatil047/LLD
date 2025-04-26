@@ -1,8 +1,8 @@
 package models.vehicle;
 
 public enum VehicleType {
+    CAR,
     BIKE,
     TRUCK,
-    SUV,
-    XUV,
+    BUS
 }
