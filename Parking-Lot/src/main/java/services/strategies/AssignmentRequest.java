@@ -1,20 +1,20 @@
-package models;
+package services.strategies;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import models.ParkingFloor;
 import models.gate.Gate;
 import models.vehicle.Vehicle;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
 @Builder
-public class Ticket extends BaseModel{
+public class AssignmentRequest {
     private Vehicle vehicle;
+    private List<ParkingFloor> parkingFloors;
     private Gate entryGate;
     private Gate exitGate;
-    private LocalDateTime entryTime;
-    private ParkingSpot parkingSpot;
 }

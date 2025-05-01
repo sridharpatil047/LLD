@@ -15,12 +15,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class TicketServiceTest {
     private TicketService ticketService;
     private TicketRepository ticketRepository;
+    private ParkingLotService parkingLotService;
     private Gate entryGate;
 
     @BeforeEach
     void setUp() {
         ticketRepository = new TicketRepository();
-        ticketService = new TicketService(ticketRepository);
+        ticketService = new TicketService(ticketRepository, parkingLotService);
 
         // Setup test gate
         Operator operator = Operator.builder()

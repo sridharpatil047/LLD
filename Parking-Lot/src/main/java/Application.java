@@ -5,9 +5,9 @@ import models.gate.Gate;
 import models.gate.GateStatus;
 import models.gate.GateType;
 import models.gate.Operator;
-import models.spot.ParkingSpot;
-import models.spot.ParkingSpotStatus;
-import models.spot.ParkingSpotType;
+import models.ParkingSpot;
+import models.ParkingSpotStatus;
+import models.ParkingSpotType;
 import models.vehicle.VehicleType;
 import repositories.*;
 import services.*;
@@ -30,7 +30,7 @@ public class Application {
         ParkingSpotService parkingSpotService = new ParkingSpotService(parkingSpotRepository);
         ParkingFloorService parkingFloorService = new ParkingFloorService(parkingFloorRepository);
         ParkingLotService parkingLotService = new ParkingLotService(parkingLotRepository);
-        TicketService ticketService = new TicketService(ticketRepository);
+        TicketService ticketService = new TicketService(ticketRepository, parkingLotService);
         PaymentService paymentService = new PaymentService(paymentRepository);
         VehicleService vehicleService = new VehicleService(vehicleRepository);
 

@@ -1,4 +1,4 @@
-package models.floor;
+package models;
 
 public enum ParkingFloorStatus {
     OPEN,

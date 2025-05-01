@@ -1,9 +1,9 @@
 package repositories;
 
+import models.ParkingFloor;
 import models.ParkingLot;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+
+import java.util.*;
 
 public class ParkingLotRepository {
     private final Map<Long, ParkingLot> parkingLotMap;
@@ -27,5 +27,9 @@ public class ParkingLotRepository {
             return Optional.empty();
         }
         return Optional.of(parkingLotMap.get(id));
+    }
+
+    public List<ParkingFloor> parkingFloors() {
+        return new ArrayList<>();
     }
 } 

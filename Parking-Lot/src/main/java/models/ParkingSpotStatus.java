@@ -1,4 +1,4 @@
-package models.spot;
+package models;
 
 public enum ParkingSpotStatus {
     AVAILABLE,

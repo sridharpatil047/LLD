@@ -1,6 +1,6 @@
 package services;
 
-import models.spot.ParkingSpot;
+import models.ParkingSpot;
 import repositories.ParkingSpotRepository;
 
 public class ParkingSpotService {
@@ -17,4 +17,5 @@ public class ParkingSpotService {
     public ParkingSpot getParkingSpot(Long id) {
         return parkingSpotRepository.findById(id).orElse(null);
     }
-} 
+
+}
